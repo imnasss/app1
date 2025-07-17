@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { checkLogin } from '../hooks/useDocs';
 import './registration.css';
 
 function Registration() {
     const navigate = useNavigate();
-
     const [formData, setFormData] = useState({
         username: '',
         email: '',
@@ -13,14 +13,13 @@ function Registration() {
         password: '',
         repeatPassword: ''
     });
-
     const [errors, setErrors] = useState('');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setErrors('');
 
@@ -41,43 +40,32 @@ function Registration() {
             return;
         }
 
-        if (formData.number.length < 9) {
-            setErrors('Phone number must be at least 9 digits');
-            return;
+        try {
+            await addUser1(
+                formData.username,
+                formData.email,
+                formData.number,
+                formData.city,
+                formData.password
+            );
+            navigate('/'); // Go to login or homepage
+        } catch (error) {
+            setErrors('Registration failed. Try again.');
+            console.error(error);
         }
-
-        if (formData.email.length < 15 || !formData.email.includes('@')) {
-            setErrors('Email must be at least 15 characters and contain "@"');
-            return;
-        }
-
-        // Password must have at least one uppercase, one lowercase, one number, and one of ',' or '.'
-        if (
-            !/[A-Z]/.test(formData.password) ||
-            !/[a-z]/.test(formData.password) ||
-            !/[0-9]/.test(formData.password) ||
-            !/[.,]/.test(formData.password)
-        ) {
-            setErrors('Password must contain at least one uppercase letter, one lowercase letter, one number, and one of "," or "."');
-            return;
-        }
-
-        // ✅ Registration successful
-        navigate('/');  // Redirect to login page
     };
 
     return (
         <div className="pirveli">
             <div className="meore">
-                <h2>მოგინდაა შე კვერნა</h2>
+                <h2>Register</h2>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
                         name="username"
-                        placeholder="მამის სახელი"
+                        placeholder="Username"
                         value={formData.username}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         type="email"
@@ -85,7 +73,6 @@ function Registration() {
                         placeholder="Email"
                         value={formData.email}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         type="number"
@@ -93,15 +80,13 @@ function Registration() {
                         placeholder="Phone Number"
                         value={formData.number}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         type="text"
                         name="city"
-                        placeholder="City Name"
+                        placeholder="City"
                         value={formData.city}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         type="password"
@@ -109,7 +94,6 @@ function Registration() {
                         placeholder="Password"
                         value={formData.password}
                         onChange={handleChange}
-                        required
                     />
                     <input
                         type="password"
@@ -117,9 +101,8 @@ function Registration() {
                         placeholder="Repeat Password"
                         value={formData.repeatPassword}
                         onChange={handleChange}
-                        required
                     />
-                    <button type="submit">მიმიშვი</button>
+                    <button type="submit">Register</button>
                 </form>
 
                 {errors && <div style={{ color: 'red' }}>{errors}</div>}

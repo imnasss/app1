@@ -1,12 +1,24 @@
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { checkLogin } from '../hooks/useDocs';
 import './login.css';
 
 function Login() {
     const navigate = useNavigate();
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
 
-    function handleLogin(e) {
+    async function handleLogin(e) {
         e.preventDefault();
-        navigate('/main');
+        setError('');
+        const success = await checkLogin(username,password);
+        if(success){
+            navigate('/main');
+        }else{
+            setError('Incorrect username or password')
+        }
+
     }
 
     return (
@@ -20,10 +32,22 @@ function Login() {
                 <h2>Instagram</h2>
                 <form id="form" onSubmit={handleLogin}>
                     <div>
-                        <input type="text" name="username" placeholder="Enter your username" />
+                        <input 
+                        type="text" 
+                        name="username"
+                        placeholder="Enter your username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
                     </div>
                     <div>
-                        <input type="password" name="password" placeholder="Enter password" />
+                        <input 
+                        type="password" 
+                        name="password" 
+                        placeholder="Enter password" 
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)} 
+                    />
                     </div>
                     <button type="submit">Login</button>
                     <p><a href="/register">Don't have an account? Sign up</a></p>
