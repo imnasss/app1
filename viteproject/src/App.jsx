@@ -1,33 +1,24 @@
-import { useState } from 'react'
-import './App.css'
+import { useState } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import './App.css';
+import './index.css';
+import './card.css';
+import Left from './mtavari/Left';
+import Right from './mtavari/Right';
+import Login from './enroll/Login';
+import Main from './Mtavari';
+import Registration from './enroll/registration';  
 
 function App() {
   return (
-    <>
-      <div className='container'>
-          <div className='top'>
-            <div className='profile'> 
-              <img className='photo' src="" alt="" />
-              <span >username</span>
-            </div>
-          </div>
-
-          <div className='imagine'></div>
-
-
-          <div className="action">
-            <button className="like ">like</button>
-            <button className="comment">comment</button>
-            <button className="share">share</button>
-          </div>
-        
-          <div className='prescription'>
-            <span>nfjas fmsfa</span>
-          </div>
-      </div>
-    </>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Registration />} />
+        <Route path="/main" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
-   
+export default App;
