@@ -1,14 +1,43 @@
 import { useState } from 'react'
 import './card.css'
+import { Link, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
+import { checkLogin, getAllUsers } from './hooks/useDocs'; 
+import React, { useEffect } from 'react';
+
+
 
 function Card() {
+  const [username, setUsername] = useState('');
+  
+    const [usersList, setUsersList] = useState([]);
+
+  useEffect(() => {
+    const savedUsername = localStorage.getItem('username');
+    if (savedUsername) {
+      setUsername(savedUsername);
+    }
+  }, []);
+
+
+  // Fetch registered users on component mount
+    useEffect(() => {
+      async function fetchUsers() {
+        const users = await getAllUsers();
+        setUsersList(users);
+      }
+      fetchUsers();
+    }, []);
+
+
+
   return (
     <>
       <div className='container'>
           <div className='top'>
             <div className='profile'> 
               <img className='photo' src="" alt="" />
-              <span >username</span> {/*.props.username*/}
+              <span>{username}</span> {/*.props.username*/}
             </div>
           </div>
 
@@ -36,7 +65,7 @@ function Card() {
 
           <div className="prescription">
         <span>
-          <strong>username {/*.props.username*/}</strong>  {/*.props.prescription*/} This is an example caption text that is easy to read because it’s inside a light gray box with some padding and rounded corners.
+          <strong>{username}</strong>  {/*.props.prescription*/} This is an example caption text that is easy to read because it’s inside a light gray box with some padding and rounded corners.
         </span>
       </div>
       </div>

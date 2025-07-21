@@ -1,62 +1,62 @@
 .container1 {
     height: 100vh;
-    width: 400px;
+    width: 360px;
     position: fixed;
     top: 0;
     right: 0;
     border: none;
     background-color: black;
-    box-shadow: -4px 0 24px rgba(0,0,0,0.08);
+    box-shadow: -3.6px 0 21.6px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 36px;
     z-index: 10;
-    border: 5px solid white;
+    border: 4.5px solid white;
 }
 
 .main {
-    margin-top: 30px;
+    margin-top: 27px;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 36px;
     align-items: center;
     justify-content: center;
     flex: 1;
 }
 
 .main1, .main2 {
-    height: 260px;
-    width: 340px;
+    height: 234px;
+    width: 306px;
     background: #fff;
-    border-radius: 18px;
-    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-    padding: 18px 0 0 0;
+    border-radius: 16.2px;
+    box-shadow: 0 1.8px 14.4px rgba(0,0,0,0.07);
+    padding: 16.2px 0 0 0;
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 9px;
     flex: 1 1 0;
-    min-height: 220px;
-    max-height: 260px;
+    min-height: 198px;
+    max-height: 234px;
 }
 
 .main1 p, .main2 p {
     text-align: center;
-    font-size: 22px;
+    font-size: 19.8px;
     font-weight: 600;
     color: #2d3a4a;
-    margin-bottom: 10px;
-    letter-spacing: 1px;
+    margin-bottom: 9px;
+    letter-spacing: 0.9px;
 }
 
 .top2 {
-    height: 80px;
+    height: 72px;
     width: 100%;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid #e0e0e0;
-    transition: background 0.2s;
+    border-bottom: 0.9px solid #e0e0e0;
+    transition: background 0.18s;
 }
 
 .top2:last-child {
@@ -71,45 +71,45 @@
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 8px 0 8px 18px;
-    border-radius: 8px;
-    gap: 18px;
+    padding: 7.2px 0 7.2px 16.2px;
+    border-radius: 7.2px;
+    gap: 16.2px;
 }
 
 .photo2 {
-    height: 48px;
-    width: 48px;
+    height: 43.2px;
+    width: 43.2px;
     border-radius: 50%;
     object-fit: cover;
     background-color: #c0c0c0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+    box-shadow: 0 1.8px 7.2px rgba(0,0,0,0.07);
 }
 
 .top2 .loc {
-    min-width: 80px;
-    height: 32px;
-    border-radius: 12px;
+    min-width: 72px;
+    height: 28.8px;
+    border-radius: 10.8px;
     background: #e0f7fa;
     color: #1565c0;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 13.5px;
     margin-left: auto;
     display: flex;
     align-items: center;
     justify-content: center;
     border: none;
-    box-shadow: 0 1px 4px rgba(21,101,192,0.07);
+    box-shadow: 0 0.9px 3.6px rgba(21,101,192,0.07);
 }
 
 .message {
     display: flex;
     align-items: flex-start;
-    gap: 12px;
-    padding: 10px 18px;
-    border-bottom: 1px solid #e0e0e0;
+    gap: 10.8px;
+    padding: 9px 16.2px;
+    border-bottom: 0.9px solid #e0e0e0;
     background: #f8fbff;
-    border-radius: 10px;
-    margin-bottom: 8px;
+    border-radius: 9px;
+    margin-bottom: 7.2px;
 }
 
 .message:last-child {
@@ -119,28 +119,28 @@
 .message-content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 3.6px;
 }
 
 .message-username {
     font-weight: 600;
     color: #1565c0;
-    font-size: 15px;
+    font-size: 13.5px;
 }
 
 .message-text {
-    font-size: 15px;
+    font-size: 13.5px;
     color: #2d3a4a;
 }
 
 .message-time {
-    font-size: 13px;
+    font-size: 11.7px;
     color: #8a8a8a;
     align-self: flex-end;
 }
 
 .location-content, .inbox-content {
-    max-height: 180px;
+    max-height: 162px;
     overflow-y: auto;
     display: flex;
     flex-direction: column;

@@ -1,31 +1,33 @@
 .container2 {
+  display: flex;
     height: 100vh;
-    width: 400px; /* Increased width */
+    width: 360px; /* Reduced by 10% */
     position: fixed;
     top: 0;
     left: 0;
     background: black; /* Instagram gradient */
     color: white;
-    box-shadow: 2px 0 16px rgba(0,0,0,0.10);
+    box-shadow: 2px 0 14.4px rgba(0,0,0,0.10);
     display: flex;
     flex-direction: column;
     align-items: center;
     border-right: 1px solid #e0e0e0;
     z-index: 100;
+
 }
 
 /* Main content inside sidebar */
 .maini {
-    width: 90%;
-    margin-top: 40px;
+    width: 81%;
+    margin-top: 36px;
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 28.8px;
     align-items: center;
     background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    padding: 32px 0;
+    border-radius: 14.4px;
+    box-shadow: 0 1.8px 7.2px rgba(0,0,0,0.04);
+    padding: 28.8px 0;
     border: none;
 }
 
@@ -36,8 +38,8 @@
     align-items: center;
     justify-content: flex-start;
     border-bottom: 1px solid #f0f0f0;
-    padding-bottom: 12px;
-    margin-bottom: 12px;
+    padding-bottom: 10.8px;
+    margin-bottom: 10.8px;
     transition: background 0.2s;
 }
 .top1:last-child {
@@ -48,30 +50,84 @@
 .profile1 {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 16.2px;
     width: 100%;
-    padding: 8px 16px;
-    border-radius: 8px;
+    padding: 7.2px 14.4px;
+    border-radius: 7.2px;
     transition: background 0.2s, box-shadow 0.2s;
     cursor: pointer;
 }
 .profile1:hover {
     background: #f5f5f5;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    box-shadow: 0 1.8px 7.2px rgba(0,0,0,0.03);
 }
 
 .photo1 {
-    height: 48px;
-    width: 48px;
+    height: 43.2px;
+    width: 43.2px;
     border-radius: 50%;
-    background: #e0e0e0;
+    background: black; /* Changed background to black */
     object-fit: cover;
-    border: 2px solid #d1d1d1;
+    border: 1.8px solid #d1d1d1;
+    display: flex;           /* to center the SVG icon */
+    align-items: center;     /* vertical center */
+    justify-content: center; /* horizontal center */
+    color: white;            /* icon color */
 }
 
+
 .profile1 span {
-    font-size: 1.1rem;
+    font-size: 0.99rem;
     color: #333;
     font-weight: 500;
     letter-spacing: 0.5px;
+}
+
+/* Left side - Registered Users */
+.users-list {
+  width: 270px;
+  padding: 18px;
+  margin-right: 45px; /* space between users list and login form */
+  border-right: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 7.2px;
+  box-shadow: 0 1.8px 4.5px rgba(0,0,0,0.1);
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.users-list h3 {
+  margin-top: 0;
+  margin-bottom: 13.5px;
+  font-size: 1.17rem;
+  color: #333;
+}
+
+.users-list ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.users-list ul li {
+  padding: 7.2px 4.5px;
+  border-bottom: 1px solid #eee;
+  color: #555;
+  font-size: 0.9rem;
+}
+
+.left-side {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;   /* Push content to bottom */
+  align-items: flex-start;     /* Align items to the left */
+  bottom: 20px; /* Adjust as needed */
+  left: 40px; /* Adjust as needed */
+}
+
+.gadasvla{
+  color: black;
+  text-decoration: none;
+  font-size: 1.2rem;
 }

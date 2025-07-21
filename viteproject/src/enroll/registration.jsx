@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { checkLogin } from '../hooks/useDocs';
+import { addUser } from '../hooks/useDocs';
+
 import './registration.css';
 
 function Registration() {
@@ -41,18 +42,18 @@ function Registration() {
         }
 
         try {
-            await addUser1(
-                formData.username,
-                formData.email,
-                formData.number,
-                formData.city,
-                formData.password
-            );
-            navigate('/'); // Go to login or homepage
-        } catch (error) {
-            setErrors('Registration failed. Try again.');
-            console.error(error);
-        }
+    await addUser({
+        username: formData.username,
+        email: formData.email,
+        number: formData.number,
+        city: formData.city,
+        password: formData.password
+    });
+    navigate('/'); // ✅ After successful registration
+} catch (error) {
+    setErrors('Registration failed. Try again.');
+    console.error(error);
+}
     };
 
     return (
